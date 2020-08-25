@@ -1,8 +1,6 @@
 {
   description = "Harden up some basic systemd services";
 
-  inputs = { };
-
   outputs = { self, nixpkgs }: {
     nixosModule = { config, stdenv, ... }: {
       options = with stdenv.lib; {
