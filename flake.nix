@@ -3,7 +3,7 @@
 
   outputs = { self, nixpkgs }: {
     nixosModules.simple-service = { config, stdenv, ... }: {
-      options = with stdenv.lib; {
+      options = with nixpkgs.stdenv.lib; {
         systemd.harden = mkOption {
           default = { };
           type = types.loaOf (types.submodule ({ name, ... }: {
@@ -29,7 +29,7 @@
         };
       };
 
-      config = with stdenv.lib; {
+      config = with nixpkgs.stdenv.lib; {
         users.users = mapAttrs
           (name: attrs: {
             isSystemUser = true;
