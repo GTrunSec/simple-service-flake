@@ -2,8 +2,8 @@
   description = "Harden up some basic systemd services";
 
   outputs = { self, nixpkgs }: {
-    nixosModules.simple-service = { config, ... }: {
-      options = with nixpkgs.lib; {
+    nixosModules.simple-service = { lib, pkgs, config, ... }: {
+      options = with lib; {
         systemd.harden = mkOption {
           default = { };
           type = types.loaOf (types.submodule ({ name, ... }: {
@@ -29,7 +29,7 @@
         };
       };
 
-      config = with nixpkgs.lib; {
+      config = with lib; {
         users.users = mapAttrs
           (name: attrs: {
             isSystemUser = true;
