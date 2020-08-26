@@ -2,7 +2,7 @@
   description = "Harden up some basic systemd services";
 
   outputs = { self, nixpkgs }: {
-    nixosModule = { config, stdenv, ... }: {
+    nixosModules.simple-service = { config, stdenv, ... }: {
       options = with stdenv.lib; {
         systemd.harden = mkOption {
           default = { };
