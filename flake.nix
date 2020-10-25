@@ -74,10 +74,10 @@
               StateDirectory = "${name}";
               BindPaths = [
                 "/var/lib/${name}"
-                "/run/postgresql"
-                "/run/mysqld"
-                "/var/run/postgresql"
-                "/var/run/mysqld"
+                "-/run/postgresql"
+                "-/run/mysqld"
+                "-/var/run/postgresql"
+                "-/var/run/mysqld"
               ];
               PrivateUsers = true;
               DynamicUser = mkForce false;
